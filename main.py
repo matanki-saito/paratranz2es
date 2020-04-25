@@ -108,6 +108,6 @@ def main(paratranz_secret,
 
 
 if __name__ == '__main__':
-    main(paratranz_secret=os.environ['PARATRANZ_SECRET'],
-         elasticsearch_host=os.environ['ELASTICSEARCH_HOST'],
-         elasticsearch_password=os.environ['ELASTICSEARCH_PASSWORD'])
+    main(paratranz_secret=os.environ.get("PARATRANZ_SECRET"),
+         elasticsearch_host=os.environ.get("ELASTICSEARCH_HOST"),
+         elasticsearch_password=os.environ.get("ELASTICSEARCH_PASSWORD"))
