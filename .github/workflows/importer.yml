@@ -29,6 +29,6 @@ jobs:
     - name: Run
       run: python main.py
       env:
-        PARATRANZ_SECRET: ${{ secrets.SuperSecret }}
-        ELASTICSEARCH_HOST: ${{ secrets.SuperSecret }}
-        ELASTICSEARCH_PASSWORD: ${{ secrets.SuperSecret }}
+        PARATRANZ_SECRET: ${{ secrets.PARATRANZ_SECRET }}
+        ELASTICSEARCH_HOST: ${{ secrets.ELASTICSEARCH_HOST }}
+        ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
