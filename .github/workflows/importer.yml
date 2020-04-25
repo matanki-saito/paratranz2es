@@ -6,13 +6,13 @@ name: Python application
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  schedule:
+    - cron:  '* */6 * * *'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    if: "! contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
     - uses: actions/checkout@v2
@@ -21,11 +21,12 @@ jobs:
       with:
         python-version: 3.8
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
+      run: python -m pip install --upgrade pip
     - name: Install elasticsearch
-      run: |
-        pip install elasticsearch
+      run: pip install elasticsearch
     - name: Run
-      run: |
-        python main.py
+      run: python main.py
+      env:
+        PARATRANZ_SECRET: ${{ secrets.SuperSecret }}
+        ELASTICSEARCH_HOST: ${{ secrets.SuperSecret }}
+        ELASTICSEARCH_PASSWORD: ${{ secrets.SuperSecret }}
