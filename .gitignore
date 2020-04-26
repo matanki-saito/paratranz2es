@@ -130,3 +130,13 @@ dmypy.json
 
 # download data
 tmp/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+# other
+/data
