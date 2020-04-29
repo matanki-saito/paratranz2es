@@ -49,20 +49,34 @@ def salvage_raw_jsons_from_zip(paratranz_zip_path):
     return results
 
 
+def convert(datas, paratranz_project_code):
+    for data in datas:
+        data.update({
+            "_id": data['key'],
+            "pz_pj_code": paratranz_project_code
+        })
+
+
 def sub(index_name,
         paratranz_project_code,
         paratranz_secret,
         es_connection):
-    # paratranzからzipファイルのダウンロード
-    zip_path = download_trans_zip_from_paratranz(project_id=paratranz_project_code,
-                                                 secret=paratranz_secret,
-                                                 out_file_path="tmp/paratranz_%s.zip" % (
-                                                     paratranz_project_code))
+    out_file_path = "tmp/paratranz_%s.zip" % paratranz_project_code
 
-    # zip_path = r'./tmp/paratranz_91.zip'
+    print("index_name=%s,code=%s" % (index_name, paratranz_project_code))
+
+    if not os.path.exists(out_file_path):
+        # paratranzからzipファイルのダウンロード
+        out_file_path = download_trans_zip_from_paratranz(project_id=paratranz_project_code,
+                                                          secret=paratranz_secret,
+                                                          out_file_path=out_file_path)
+        print("download data")
 
     # rawデータが入ったデータを読み込み
-    entries = salvage_raw_jsons_from_zip(zip_path)
+    entries = salvage_raw_jsons_from_zip(out_file_path)
+
+    # 変換
+    convert(entries, paratranz_project_code)
 
     # ESにインポート
     entries_length = len(entries)
