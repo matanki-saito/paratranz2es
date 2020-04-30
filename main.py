@@ -120,6 +120,20 @@ def main(paratranz_secret,
         paratranz_secret=paratranz_secret,
         es_connection=es_connection)
 
+    # Hearts of Iron IV
+    # https://paratranz.cn/projects/903
+    sub(index_name="hoi4",
+        paratranz_project_code=903,
+        paratranz_secret=paratranz_secret,
+        es_connection=es_connection)
+
+    # Hearts of Iron IV Kaiserreich
+    # https://paratranz.cn/projects/500
+    sub(index_name="kr",
+        paratranz_project_code=500,
+        paratranz_secret=paratranz_secret,
+        es_connection=es_connection)
+
 
 if __name__ == '__main__':
     main(paratranz_secret=os.environ.get("PARATRANZ_SECRET"),
