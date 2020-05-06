@@ -114,7 +114,7 @@ def main(paratranz_secret,
         es_connection=es_connection)
 
     # Imperator: Rome
-    # https://paratranz.cn/projects/91
+    # https://paratranz.cn/projects/335
     sub(index_name="ir",
         paratranz_project_code=335,
         paratranz_secret=paratranz_secret,
