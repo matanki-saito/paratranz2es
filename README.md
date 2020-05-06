@@ -11,7 +11,7 @@ The task is performed by github-actions every 3 hours.
 ## Sources
 
 |  Index  | Project Code and link  | Project Credit | Search Prefix | owner |
-| - | - | - | - | - | - |
+| - | - | - | - | - |
 | 1 | [76](https://paratranz.cn/projects/76) | EU4_JPM_PROJECT | eu4 | gnagaoka |
 | 2 | [91](https://paratranz.cn/projects/91) | CK2_JPM_PROJECT | ck2 | gnagaoka |
 | 3 | [335](https://paratranz.cn/projects/335) | Imperator: Rome 日本語化Mod製作プロジェクト | ir | clamm |
