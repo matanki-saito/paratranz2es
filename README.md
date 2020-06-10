@@ -3,7 +3,7 @@
 Import paratranz translation data to elasticsearch single cluster.
 
 See [discordbot](https://github.com/matanki-saito/discordbot) for details.
-
+- 
 ## Schedule
 
 The task is performed by github-actions every 3 hours.
