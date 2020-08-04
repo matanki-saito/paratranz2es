@@ -120,6 +120,13 @@ def main(paratranz_secret,
         paratranz_secret=paratranz_secret,
         es_connection=es_connection)
 
+    # Imperator: Rome pronoun
+    # https://paratranz.cn/projects/350
+    sub(index_name="ir",
+        paratranz_project_code=350,
+        paratranz_secret=paratranz_secret,
+        es_connection=es_connection)
+
     # Hearts of Iron IV
     # https://paratranz.cn/projects/903
     sub(index_name="hoi4",
