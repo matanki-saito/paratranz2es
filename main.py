@@ -141,6 +141,13 @@ def main(paratranz_secret,
         paratranz_secret=paratranz_secret,
         es_connection=es_connection)
 
+    # Crusader Kings III
+    # https://paratranz.cn/projects/1518
+    sub(index_name="ck3",
+        paratranz_project_code=1518,
+        paratranz_secret=paratranz_secret,
+        es_connection=es_connection)
+
 
 if __name__ == '__main__':
     main(paratranz_secret=os.environ.get("PARATRANZ_SECRET"),
