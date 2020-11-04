@@ -51,8 +51,20 @@ def salvage_raw_jsons_from_zip(paratranz_zip_path):
 
 def convert(datas, paratranz_project_code):
     for data in datas:
+        base = data['key'].split(':')
+
+        if len(base) >= 2:
+            key = base[0]
+            version = base[1]
+        else:
+            key = base[0]
+            version = None
+
+        data['key'] = key
+
         data.update({
-            "_id": data['key'],
+            "_id": key,
+            "text_version": version,
             "pz_pj_code": paratranz_project_code
         })
 
