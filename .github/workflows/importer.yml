@@ -4,13 +4,12 @@
 name: Python application
 
 on:
-  repository_dispatch:
-    types: [test_trigger]
-  push:
-    branches: [ master ]
   schedule:
-    - cron:  '0 */3 * * *'
-
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+    inputs:
+      info:
+        description: 'manual trigger'
 jobs:
   build:
     runs-on: ubuntu-latest
