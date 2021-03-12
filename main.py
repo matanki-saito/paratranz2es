@@ -102,7 +102,7 @@ def main(paratranz_secret,
          elasticsearch_host,
          elasticsearch_password,
          elasticsearch_username="elastic",
-         elasticsearch_port=9200):
+         elasticsearch_port=80):
     # 一時フォルダ用意
     os.makedirs("tmp", exist_ok=True)
 
