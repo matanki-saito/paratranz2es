@@ -140,9 +140,9 @@ def main(paratranz_secret,
         es_connection=es_connection)
 
     # Hearts of Iron IV
-    # https://paratranz.cn/projects/903
+    # https://paratranz.cn/projects/2063
     sub(index_name="hoi4",
-        paratranz_project_code=903,
+        paratranz_project_code=2063,
         paratranz_secret=paratranz_secret,
         es_connection=es_connection)
 
