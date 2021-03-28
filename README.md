@@ -16,7 +16,7 @@ The task is performed by github-actions every 3 hours.
 | 2 | [91](https://paratranz.cn/projects/91) | CK2_JPM_PROJECT | ck2 | gnagaoka |
 | 3 | [335](https://paratranz.cn/projects/335) | Imperator: Rome 日本語化Mod製作プロジェクト | ir | clamm |
 | 4 | [350](https://paratranz.cn/projects/350) | Imperator: Rome 日本語化Mod製作プロジェクト | ir | clamm |
-| 5 | [903](https://paratranz.cn/projects/903) | [Herats of Iron IV 日本語化Mod作業所](https://docs.google.com/spreadsheets/d/1JW4rjNH4SVspSxvh2wobucvzdVY74o0eJQoI2QGf4n8/edit#gid=476393799) | hoi4 | Inarizushi |
+| 5 | [2063](https://paratranz.cn/projects/2063) | [Hearts of Iron IV Japanese Language mod](https://docs.google.com/spreadsheets/d/1JW4rjNH4SVspSxvh2wobucvzdVY74o0eJQoI2QGf4n8/edit#gid=476393799) | hoi4 | Inarizushi |
 | 6 | [500](https://paratranz.cn/projects/500) | +JP: Kaiserreich | kr | Inarizushi |
 | 7 | [1518](https://paratranz.cn/projects/1518) | CK3_JPM_PROJECT | ck3 | gnagaoka |
 
