@@ -160,6 +160,12 @@ def main(paratranz_secret,
         paratranz_secret=paratranz_secret,
         es_connection=es_connection)
 
+    # Victoria II
+    # https://paratranz.cn/projects/2543
+    sub(index_name="vic2",
+        paratranz_project_code=2543,
+        paratranz_secret=paratranz_secret,
+        es_connection=es_connection)
 
 if __name__ == '__main__':
     main(paratranz_secret=os.environ.get("PARATRANZ_SECRET"),
