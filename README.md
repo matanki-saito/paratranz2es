@@ -19,6 +19,7 @@ The task is performed by github-actions every 3 hours.
 | 5 | [2063](https://paratranz.cn/projects/2063) | [Hearts of Iron IV Japanese Language mod](https://docs.google.com/spreadsheets/d/1JW4rjNH4SVspSxvh2wobucvzdVY74o0eJQoI2QGf4n8/edit#gid=476393799) | hoi4 | Inarizushi |
 | 6 | [500](https://paratranz.cn/projects/500) | +JP: Kaiserreich | kr | Inarizushi |
 | 7 | [1518](https://paratranz.cn/projects/1518) | CK3_JPM_PROJECT | ck3 | gnagaoka |
+| 8 | [2543](https://paratranz.cn/projects/2543) | VIC2_JPM_PROJECT | v2 | gnagaoka | 
 
 ## Environments
 
