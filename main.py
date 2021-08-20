@@ -44,6 +44,9 @@ def salvage_raw_jsons_from_zip(paratranz_zip_path):
                 continue
 
             entry_list = json.loads(zip_file.read(info.filename))
+            for entry in entry_list:
+                entry['file_path'] = info.filename
+
             results.extend(entry_list)
 
     return results
@@ -62,9 +65,20 @@ def convert(datas, paratranz_project_code):
 
         data['key'] = key
 
+        dir_and_file = os.path.split(data['file_path'])
+        file_dir = '/'.join(dir_and_file[0].split('/')[1:])
+        file_name = '.'.join(dir_and_file[1].split('.')[:-1])
+
+        # TODO: 特殊記号は1文字相当にするなどの処理を入れてもよい
+        size_original = len(data['original'])
+        size_translation = len(data['translation'])
+
         data.update({
             "_id": key,
             "text_version": version,
+            "file_path": file_dir + '/' + file_name,
+            "size_original": size_original,
+            "size_translation": size_translation,
             "pz_pj_code": paratranz_project_code
         })
 
@@ -167,7 +181,9 @@ def main(paratranz_secret,
         paratranz_secret=paratranz_secret,
         es_connection=es_connection)
 
+
 if __name__ == '__main__':
     main(paratranz_secret=os.environ.get("PARATRANZ_SECRET"),
          elasticsearch_host=os.environ.get("ELASTICSEARCH_HOST"),
-         elasticsearch_password=os.environ.get("ELASTICSEARCH_PASSWORD"))
+         elasticsearch_password=os.environ.get("ELASTICSEARCH_PASSWORD"),
+         elasticsearch_port=int(os.environ.get("ELASTICSEARCH_PORT")))
