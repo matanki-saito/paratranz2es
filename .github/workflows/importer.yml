@@ -32,6 +32,7 @@ jobs:
           PARATRANZ_SECRET: ${{ secrets.PARATRANZ_SECRET }}
           ELASTICSEARCH_HOST: ${{ secrets.ELASTICSEARCH_HOST }}
           ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
+          ELASTICSEARCH_PORT: ${{ secrets.ELASTICSEARCH_PORT }}
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
