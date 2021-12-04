@@ -30,3 +30,27 @@ This script receives the secret in the environment variable.The port number (920
 | PARATRANZ_SECRET | paratranz API key | 6966dfca20cb0fb18a255ad45a125bb9 |
 | ELASTICSEARCH_HOST | elasticsearch cluster host | localhost |
 | ELASTICSEARCH_PASSWORD | elasticsearch cluster password | hogehoge |
+
+## Local develop(WSL2)
+
+```text
+━━━━━━━━━━━━━━━━━━━━
+ 　☢ CAUTION!! ☢　
+━━━━━━━━━━━━━━━━━━━━
+The cluster will not work unless you change the configuration.
+```
+
+- [github issue](https://github.com/docker/for-win/issues/5202#issuecomment-643045922)
+
+```sh
+❯ wsl --shutdown # because we don't really need to restart the computer to see the config is lost ...
+⚡ beccari@RAYGUN  ~                                                                                         [00:28]
+❯ wsl -d docker-desktop cat /proc/sys/vm/max_map_count # current value
+65530
+⚡ beccari@RAYGUN  ~                                                                                         [00:28]
+❯ wsl -d docker-desktop sysctl -w vm.max_map_count=262144
+vm.max_map_count = 262144
+⚡ beccari@RAYGUN  ~                                                                                         [00:28]
+❯ wsl -d docker-desktop cat /proc/sys/vm/max_map_count 
+262144
+ ```
