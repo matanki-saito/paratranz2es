@@ -4,8 +4,8 @@ import re
 import urllib.request
 import zipfile
 
-from elasticsearch import Elasticsearch
-from elasticsearch import helpers
+from elasticsearch7 import Elasticsearch
+from elasticsearch7 import helpers
 
 compiled_raw_json_file_patter = re.compile(r'^raw/.*\.json$')
 
