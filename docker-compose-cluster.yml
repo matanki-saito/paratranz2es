@@ -1,0 +1,119 @@
+version: '2.2'
+services:
+  elasticsearch1:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    container_name: elasticsearch1
+    hostname: elasticsearch1
+    volumes:
+      - ./data/es1:/usr/share/elasticsearch/data
+      - ./prepare_ssl/certs:/usr/share/elasticsearch/config/certificates
+    ports:
+      - 9203:9200
+    environment:
+      - node.name=elasticsearch1
+      - cluster.name=ES
+      - ES_JAVA_OPTS=-Xms1024m -Xmx1024m
+      - bootstrap.memory_lock=true
+      - discovery.seed_hosts=elasticsearch2,elasticsearch3
+      - cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3
+      - xpack.license.self_generated.type=trial
+      - xpack.monitoring.collection.enabled=true
+      - ELASTIC_PASSWORD=hogehoge
+      - xpack.security.enabled=true
+      - xpack.security.transport.ssl.enabled=true
+      - xpack.security.http.ssl.key=/usr/share/elasticsearch/config/certificates/elasticsearch1/elasticsearch1.key
+      - xpack.security.http.ssl.certificate_authorities=/usr/share/elasticsearch/config/certificates/ca/ca.crt
+      - xpack.security.http.ssl.certificate=/usr/share/elasticsearch/config/certificates/elasticsearch1/elasticsearch1.crt
+      - xpack.security.transport.ssl.verification_mode=certificate
+      - xpack.security.transport.ssl.certificate_authorities=/usr/share/elasticsearch/config/certificates/ca/ca.crt
+      - xpack.security.transport.ssl.certificate=/usr/share/elasticsearch/config/certificates/elasticsearch1/elasticsearch1.crt
+      - xpack.security.transport.ssl.key=/usr/share/elasticsearch/config/certificates/elasticsearch1/elasticsearch1.key
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elastic
+  elasticsearch2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    container_name: elasticsearch2
+    hostname: elasticsearch2
+    volumes:
+      - ./data/es2:/usr/share/elasticsearch/data
+      - ./prepare_ssl/certs:/usr/share/elasticsearch/config/certificates
+    ports:
+      - 9201:9200
+    environment:
+      - node.name=elasticsearch2
+      - cluster.name=ES
+      - ES_JAVA_OPTS=-Xms1024m -Xmx1024m
+      - bootstrap.memory_lock=true
+      - discovery.seed_hosts=elasticsearch1,elasticsearch3
+      - cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3
+      - xpack.license.self_generated.type=trial
+      - xpack.monitoring.collection.enabled=true
+      - ELASTIC_PASSWORD=hogehoge
+      - xpack.security.enabled=true
+      - xpack.security.transport.ssl.enabled=true
+      - xpack.security.http.ssl.key=/usr/share/elasticsearch/config/certificates/elasticsearch2/elasticsearch2.key
+      - xpack.security.http.ssl.certificate_authorities=/usr/share/elasticsearch/config/certificates/ca/ca.crt
+      - xpack.security.http.ssl.certificate=/usr/share/elasticsearch/config/certificates/elasticsearch2/elasticsearch2.crt
+      - xpack.security.transport.ssl.verification_mode=certificate
+      - xpack.security.transport.ssl.certificate_authorities=/usr/share/elasticsearch/config/certificates/ca/ca.crt
+      - xpack.security.transport.ssl.certificate=/usr/share/elasticsearch/config/certificates/elasticsearch2/elasticsearch2.crt
+      - xpack.security.transport.ssl.key=/usr/share/elasticsearch/config/certificates/elasticsearch2/elasticsearch2.key
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elastic
+  elasticsearch3:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.15.2
+    container_name: elasticsearch3
+    hostname: elasticsearch3
+    volumes:
+      - ./data/es3:/usr/share/elasticsearch/data
+      - ./prepare_ssl/certs:/usr/share/elasticsearch/config/certificates
+    ports:
+      - 9202:9200
+    environment:
+      - node.name=elasticsearch3
+      - cluster.name=ES
+      - ES_JAVA_OPTS=-Xms1024m -Xmx1024m
+      - bootstrap.memory_lock=true
+      - discovery.seed_hosts=elasticsearch2,elasticsearch3
+      - cluster.initial_master_nodes=elasticsearch1,elasticsearch2,elasticsearch3
+      - xpack.license.self_generated.type=trial
+      - xpack.monitoring.collection.enabled=true
+      - ELASTIC_PASSWORD=hogehoge
+      - xpack.security.enabled=true
+      - xpack.security.transport.ssl.enabled=true
+      - xpack.security.http.ssl.key=/usr/share/elasticsearch/config/certificates/elasticsearch3/elasticsearch3.key
+      - xpack.security.http.ssl.certificate_authorities=/usr/share/elasticsearch/config/certificates/ca/ca.crt
+      - xpack.security.http.ssl.certificate=/usr/share/elasticsearch/config/certificates/elasticsearch3/elasticsearch3.crt
+      - xpack.security.transport.ssl.verification_mode=certificate
+      - xpack.security.transport.ssl.certificate_authorities=/usr/share/elasticsearch/config/certificates/ca/ca.crt
+      - xpack.security.transport.ssl.certificate=/usr/share/elasticsearch/config/certificates/elasticsearch3/elasticsearch3.crt
+      - xpack.security.transport.ssl.key=/usr/share/elasticsearch/config/certificates/elasticsearch3/elasticsearch3.key
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elastic
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.15.2
+    ports:
+      - 15601:5601
+    environment:
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=hogehoge
+      - ELASTICSEARCH_HOSTS=["http://elasticsearch1:9200","http://elasticsearch2:9200","http://elasticsearch3:9200"]
+      - xpack.security.enabled=true
+    networks:
+      - elastic
+networks:
+  elastic:
+    driver: bridge
