@@ -20,6 +20,7 @@ The task is performed by github-actions every 3 hours.
 | 6 | [500](https://paratranz.cn/projects/500) | +JP: Kaiserreich | kr | Inarizushi |
 | 7 | [1518](https://paratranz.cn/projects/1518) | CK3_JPM_PROJECT | ck3 | gnagaoka |
 | 8 | [2543](https://paratranz.cn/projects/2543) | VIC2_JPM_PROJECT | vic2 | gnagaoka | 
+| 9 | [5456](https://paratranz.cn/projects/5456) | VIC2_JPM_PROJECT | vic3 | gnagaoka | 
 
 ## Environments
 
